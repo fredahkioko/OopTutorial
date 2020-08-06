@@ -3,6 +3,11 @@
 interface PaymentInterface{
   public function payNow()
 }
+interface PaymentProcess{
+  public function login(){
+
+  }
+}
 class Mpesa implements PaymentInterface{
  public function payNow(){}
 }
@@ -12,9 +17,10 @@ class Visa implements PaymentInterface{
 class Cash implements PaymentInterface{
  public function payNow(){}
 }
-class BuyProduct{
+class BuyProduct implements PaymentProcess{
  public function pay($paymentType){
    $paymentType->payNow();
+  $paymentType->login();
  }
 }
 $paymentType=new cash();
