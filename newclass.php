@@ -12,7 +12,7 @@ var_dump($object);
 class User{
   //the following are properties
   public $username;
-  private $email;
+  protected $email;
   private $age;
   Public $role='member';
 
@@ -32,7 +32,9 @@ class User{
     return "$this->username added a new friend";
 
   }
-
+  public function message(){
+    return "$this->email sent a new message";
+  }
 
   //getter(used to acces private properties)
 
@@ -61,18 +63,25 @@ class User{
        //the parent keyword calls the properties from the parent class
        parent::__construct($username,$email,$age);
         }
+        public function message(){
+          return "$this->email,The admin sent this email";
+        }
 
 }
 $userone = new User('Mario','mario@hotmail.com',20);
 $usertwo = new User('Sasaka','Tonysas2020@ggmail.com',40);
-$userthree = new AdminUser('Tony','Luvonga@ggmail.com',21,'Manager');
+$userthree = new AdminUser('Tony','Luvonga@gmail.com',21,'Manager');
 
+
+echo $userthree->message().'<br>';
+
+/*
  echo $userthree->username.'<br>';
  echo $userthree-> getEmail().'<br>';
  echo $userthree-> getAge().'<br>';
  echo $userthree->role.'<br>';
 
-/*
+
 //to change we use set
 $userone->setEmail('Lydia@strathmore.edu');
 
