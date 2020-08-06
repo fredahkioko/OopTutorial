@@ -1,3 +1,7 @@
+<?
+include 'include/autoloader.inc.php';
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -6,15 +10,11 @@
   </head>
   <body>
 
-
       <?php
 
-      $petsy=new Pet();
-
-      echo $petsy->owner();
+      $person1=new Person("Daniel","Tutorial",28);
+        echo $person1->getPerson();
       ?>
-
-
 
   </body>
 </html>
