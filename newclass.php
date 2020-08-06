@@ -12,8 +12,9 @@ var_dump($object);
 class User{
   //the following are properties
   public $username;
-  public $email;
+  private $email;
   private $age;
+  Public $role='member';
 
 /*to pass or insert variables in a class we use a constructor
 -creates a new instance of an objectbased on the class
@@ -31,20 +32,55 @@ class User{
     return "$this->username added a new friend";
 
   }
+
+
   //getter(used to acces private properties)
 
   public function getAge(){
     return $this->age;
   }
+  public function getEmail(){
+    return $this->email;
+  }
 
   //setter(used to modify private properties)
+  public function setEmail($email){
+    if(strpos($email,'@')> -1){
+    $this->email=$email;
+    }
+
+  }
+}
+  //inheritance
+  class AdminUser extends User{
+
+   public $role;
+
+   public function __construct($username,$email,$age,$role){
+       $this->role=$role;
+       //the parent keyword calls the properties from the parent class
+       parent::__construct($username,$email,$age);
+        }
 
 }
-$userone = new User('Mario','mario@hotmail.com','20');
-$usertwo = new User('Sasaka','Tonysas2020@ggmail.com','40');
+$userone = new User('Mario','mario@hotmail.com',20);
+$usertwo = new User('Sasaka','Tonysas2020@ggmail.com',40);
+$userthree = new AdminUser('Tony','Luvonga@ggmail.com',21,'Manager');
 
- echo $userone-> getAge().'<br>';
+ echo $userthree->username.'<br>';
+ echo $userthree-> getEmail().'<br>';
+ echo $userthree-> getAge().'<br>';
+ echo $userthree->role.'<br>';
+
+/*
+//to change we use set
+$userone->setEmail('Lydia@strathmore.edu');
+
+//to get we use get
+ echo $userone-> getEmail().'<br>';
  echo $usertwo-> getAge().'<br>';
+
+*/
 /*
 
 //to access properties in a class
