@@ -56,7 +56,8 @@ class User{
   //inheritance
   class AdminUser extends User{
 
-   public $role;
+   public $role;//overide
+
 
    public function __construct($username,$email,$age,$role){
        $this->role=$role;
