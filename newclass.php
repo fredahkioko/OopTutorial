@@ -13,13 +13,15 @@ class User{
   //the following are properties
   public $username;
   public $email;
+  private $age;
 
 /*to pass or insert variables in a class we use a constructor
 -creates a new instance of an objectbased on the class
  hence it is called inside the class */
-  public function __construct($username,$email){
+  public function __construct($username,$email,$age){
     $this->username=$username;
     $this->email=$email;
+    $this->age=$age;
   }
 
 //the following is a method and is defined inside a class
@@ -29,14 +31,26 @@ class User{
     return "$this->username added a new friend";
 
   }
+  //getter(used to acces private properties)
+
+  public function getAge(){
+    return $this->age;
+  }
+
+  //setter(used to modify private properties)
 
 }
-$userone = new User('Mario','mario@hotmail.com');
-$usertwo = new User('Sasaka','Tonysas2020@ggmail.com');
+$userone = new User('Mario','mario@hotmail.com','20');
+$usertwo = new User('Sasaka','Tonysas2020@ggmail.com','40');
+
+ echo $userone-> getAge().'<br>';
+ echo $usertwo-> getAge().'<br>';
+/*
 
 //to access properties in a class
 echo$userone->username.'<br>';
 echo$userone->email.'<br>';
+echo$userone->age.'<br>';
 echo$userone->addFriend().'<br>';
 /*
 echo"<br>";
@@ -44,10 +58,10 @@ echo"<br>";
 $usertwo->username="Lydia";
 $usertwo->email="lydia.kahurs@yahoo.com";
 $usertwo->age=20;
-*/
+
 echo$usertwo->username.'<br>';
 echo$usertwo->email.'<br>';
-//echo$usertwo->age.'<br>';
+echo$usertwo->age.'<br>';
 echo$usertwo->addFriend().'<br';
 
  echo"<br>";
@@ -57,3 +71,5 @@ echo "this is a class ".get_class($userone);
  print_r(get_class_vars('User'));//shows the properties and values
  echo'<br>';
   print_r(get_class_methods('User'));//to know the methods
+
+*/
