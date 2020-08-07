@@ -2,4 +2,4 @@
 include "conflict.Namespace.php";
 include "Virtual.Namespace.php";
 
-$object=new A;
+  $object=new second\A;
